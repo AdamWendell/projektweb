@@ -1,0 +1,24 @@
+{
+  "name": "web",
+  "version": "0.0.1",
+  "description": "Frontend and auth server",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape ./test/*.js && (cd frontend; elm-app test)",
+    "build": "cd ./frontend/; elm-app build; cd ..",
+    "start": "node ./src/index.js"
+  },
+  "keywords": [
+    "node",
+    "elm",
+    "redis"
+  ],
+  "author": "Adam Wendell",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
+  }
+}
