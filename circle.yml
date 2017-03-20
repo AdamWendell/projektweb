@@ -9,5 +9,5 @@ dependencies:
 
 test:
   override:
-    - docker run -d adamwendell/web npm test;
+    - docker run -t adamwendell/web npm test;
     
