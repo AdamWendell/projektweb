@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t adamwendell/web .
+
+test:
+  override:
+    - docker run -d adamwendell/web;
