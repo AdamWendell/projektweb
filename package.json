@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "node_modules/.bin/tape ./test/*.js && (cd frontend; elm-app test)",
-    "build": "npm i; cd ./frontend/; elm-app build; cd ..",
+    "build": "cd ./frontend/; elm-app package install -y; elm-app build;",
     "start": "node ./src/index.js"
   },
   "keywords": [

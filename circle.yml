@@ -3,11 +3,21 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
+
   override:
-    - docker info
-    - docker build --rm=false -t adamwendell/web .
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
+    - docker build --rm=false -t adamwendell/projektweb .
+    - mkdir -p ~/docker; docker save adamwendell/projektweb > ~/docker/image.tar  
 
 test:
   override:
-    - docker run -t adamwendell/web npm test;
+    - docker run -t adamwendell/projektweb npm test;
     
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push adamwendell/projektweb
