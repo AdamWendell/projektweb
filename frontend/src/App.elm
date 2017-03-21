@@ -12,7 +12,7 @@ type alias Model =
 
 init : String -> ( Model, Cmd Msg )
 init path =
-    ( { message = "Your Elm App is working!", logo = path }, Cmd.none )
+    ( { message = "Your Elm App is working!!!", logo = path }, Cmd.none )
 
 
 type Msg
